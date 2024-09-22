@@ -1,1 +1,33 @@
+problem1:
+
+```
 data("penguins", package = "palmerpenguins")
+
+nrow(penguins)  
+ncol(penguins)  
+mean(penguins$flipper_length_mm, na.rm = TRUE) 
+```
+
+Description:
+
+The penguins dataset contains 'r nrow(penguins)' observations and r ncol(penguins) variables. Important variables include:
+
+species: Types of penguins ,
+island: Location of penguin observation,
+bill_length_mm: Length of the penguin's bill in millimeters,
+flipper_length_mm: Length of the penguin's flipper in millimeters, with a mean of 'r mean(penguins$flipper_length_mm, na.rm = TRUE)' mm,
+body_mass_g: Weight of the penguin in grams,
+sex: The penguin's gender.
+
+```
+library(ggplot2)
+
+ggplot(data = penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+  geom_point() +
+  labs(title = "Flipper Length vs Bill Length by Species",
+       x = "Bill Length (mm)",
+       y = "Flipper Length (mm)") +
+  theme_minimal()
+```
+
+
